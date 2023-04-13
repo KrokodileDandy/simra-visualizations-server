@@ -70,7 +70,7 @@ Next, enter the psql command line interface as the user `postgres` to allocate a
 
 ```
 sudo -u postgres psql
-psql=# alter user simra with encrypted password 'simra';
+psql=# alter user simra with encrypted password 'simra12345simra';
 psql=# grant all privileges on database simra to simra;
 psql=# alter role simra superuser;
 ```
