@@ -144,13 +144,13 @@ Check whether `/etc/tirex/` and `/usr/lib/tirex/` exist. If not, something went 
 
 Tirex needs some additional directories to run, so create them now: `sudo mkdir /var/lib/tirex/ /var/run/tirex/ /var/log/tirex/`
 
-Next, run `chown tirex:tirex -R /var/lib/tirex/ /var/run/tirex/ /usr/lib/tirex/ /var/log/tirex/ /etx/tirex/` to allocated respective rights for the user `tirex`.
+Next, run `chown tirex:tirex -R /var/lib/tirex/ /var/run/tirex/ /usr/lib/tirex/ /var/log/tirex/ /etc/tirex/` to allocated respective rights for the user `tirex`.
 
 Now, remove the initial Mapnik directory of Tirex via `sudo rmdir /etc/tirex/renderer/mapnik`. Create a symlink to this repositories folder `tileserver/mapnik_config/` instead, e.g. `sudo ln -s /home/sfuehr/Documents/TUB-WI/S7_BA_SimRa/simra-visualizations-server/tileserver/mapnik_config /etc/tirex/renderer/mapnik`. **Be sure that the path to `mapnik_config/` does not contain spaces!**
 
 Next, remove all content from the `openseamap/` directory via `sudo rm -r /etc/tirex/renderer/openseamap/*`.
 
-Execute `sudo mkdir /var/lib/tirex/tiles` to create the Tirex tiles folder and for each config file in `tileserver/mapnik_config/` create a folder of the same name in `/var/lib/tirex/tiles/`: `sudo mkdir incident-combined popularity-combined relative-speed-aggregated relative-speed-single rides-density_all rides-density_rushhourevening rides-density_rushhourmorning rides-density_weekend rides-original stoptimes surface-quality-aggregated surface-quality-single popularity-score popularity-combined popularity-original_avoided popularity-original_chosen popularity_w-incidents_combined popularity_w-incidents_score popularity-original_w-incidents_avoided popularity-original_w-incidents_chosen`. Grant permission via `sudo chown tirex:tirex -R /var/lib/tirex`.
+Execute `sudo mkdir /var/lib/tirex/tiles` to create the Tirex tiles folder and for each config file in `tileserver/mapnik_config/` create a folder of the same name in `/var/lib/tirex/tiles/`: `sudo mkdir incident-combined popularity-combined relative-speed-aggregated relative-speed-single rides-density_all rides-density_rushhourevening rides-density_rushhourmorning rides-density_weekend rides-original rides-quality-segments stoptimes surface-quality-aggregated surface-quality-single popularity-score popularity-original_avoided popularity-original_chosen popularity_w-incidents_combined popularity_w-incidents_score popularity-original_w-incidents_avoided popularity-original_w-incidents_chosen`. Grant permission via `sudo chown tirex:tirex -R /var/lib/tirex`.
 
 Then copy the service files `tirex-backend-manager.service` and `tirex-master.service` into the systems service folder. Both service files can be found inside the directory `tileserver/config/` inside this repository.
 
